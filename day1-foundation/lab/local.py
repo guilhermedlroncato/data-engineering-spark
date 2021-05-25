@@ -25,7 +25,7 @@ if __name__ == '__main__':
         .format("json") \
         .option("inferSchema", "true") \
         .option("header", "true") \
-        .json("/home/guilherme/Cursos/DataEngineeringSpark/datas/landing/movies/*.json")
+        .json("/home/guilherme/Cursos/DataEngineeringSpark/data-lake/landing/movies/*.json")
 
 
     # read user json
@@ -33,7 +33,7 @@ if __name__ == '__main__':
         .format("json") \
         .option("inferSchema", "true") \
         .option("header", "true") \
-        .json("/home/guilherme/Cursos/DataEngineeringSpark/datas/landing/ratings/*.json")
+        .json("/home/guilherme/Cursos/DataEngineeringSpark/data-lake/landing/ratings/*.json")
 
     # print schema
     df_movies.printSchema()
@@ -71,7 +71,7 @@ if __name__ == '__main__':
     df_join.show()
 
     # write data in parquet files
-    df_join.write.mode("overwrite").format("parquet").save("/home/guilherme/Cursos/DataEngineeringSpark/datas/processed/lab1/")
+    df_join.write.mode("overwrite").format("parquet").save("/home/guilherme/Cursos/DataEngineeringSpark/data-lake/processed/lab1/")
 
     # stop spark session
     spark.stop()
